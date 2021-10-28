@@ -40,17 +40,21 @@
             this.rpViewer.LocalReport.DataSources.Add(reportDataSource1);
             this.rpViewer.LocalReport.ReportEmbeddedResource = "GUI.Report.rdlc";
             this.rpViewer.Location = new System.Drawing.Point(0, 0);
+            this.rpViewer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rpViewer.Name = "rpViewer";
             this.rpViewer.ServerReport.BearerToken = null;
-            this.rpViewer.Size = new System.Drawing.Size(1048, 557);
+            this.rpViewer.Size = new System.Drawing.Size(786, 453);
             this.rpViewer.TabIndex = 0;
             // 
             // frmReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 557);
+            this.ClientSize = new System.Drawing.Size(786, 453);
             this.Controls.Add(this.rpViewer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "frmReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo Cáo";

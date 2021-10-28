@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel61 = new System.Windows.Forms.Panel();
-            this.btnShowAllTicketsByShowTime = new System.Windows.Forms.Button();
+            this.pnTitle = new System.Windows.Forms.Panel();
+            this.btnShowShowTimeNotCreateTickets = new System.Windows.Forms.Button();
             this.btnShowAllTicketsBoughtByShowTime = new System.Windows.Forms.Button();
+            this.btnShowAllTicketsByShowTime = new System.Windows.Forms.Button();
             this.btnAddTicketsByShowTime = new System.Windows.Forms.Button();
             this.btnAllListShowTimes = new System.Windows.Forms.Button();
-            this.btnShowShowTimeNotCreateTickets = new System.Windows.Forms.Button();
             this.btnDeleteTicketsByShowTime = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lsvAllListShowTimes = new System.Windows.Forms.ListView();
@@ -42,100 +42,88 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dtgvTicket = new System.Windows.Forms.DataGridView();
-            this.panel61.SuspendLayout();
+            this.pnTitle.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTicket)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel61
+            // pnTitle
             // 
-            this.panel61.Controls.Add(this.btnShowAllTicketsByShowTime);
-            this.panel61.Controls.Add(this.btnShowAllTicketsBoughtByShowTime);
-            this.panel61.Controls.Add(this.btnAddTicketsByShowTime);
-            this.panel61.Controls.Add(this.btnAllListShowTimes);
-            this.panel61.Controls.Add(this.btnShowShowTimeNotCreateTickets);
-            this.panel61.Controls.Add(this.btnDeleteTicketsByShowTime);
-            this.panel61.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel61.Location = new System.Drawing.Point(0, 0);
-            this.panel61.Margin = new System.Windows.Forms.Padding(4);
-            this.panel61.Name = "panel61";
-            this.panel61.Size = new System.Drawing.Size(1548, 64);
-            this.panel61.TabIndex = 10;
-            // 
-            // btnShowAllTicketsByShowTime
-            // 
-            this.btnShowAllTicketsByShowTime.Location = new System.Drawing.Point(490, 4);
-            this.btnShowAllTicketsByShowTime.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowAllTicketsByShowTime.Name = "btnShowAllTicketsByShowTime";
-            this.btnShowAllTicketsByShowTime.Size = new System.Drawing.Size(154, 57);
-            this.btnShowAllTicketsByShowTime.TabIndex = 5;
-            this.btnShowAllTicketsByShowTime.Text = "Xem Tất Cả Các Vé Theo Lịch Chiếu";
-            this.btnShowAllTicketsByShowTime.UseVisualStyleBackColor = true;
-            this.btnShowAllTicketsByShowTime.Click += new System.EventHandler(this.btnShowAllTicketsByShowTime_Click);
-            // 
-            // btnShowAllTicketsBoughtByShowTime
-            // 
-            this.btnShowAllTicketsBoughtByShowTime.Location = new System.Drawing.Point(328, 4);
-            this.btnShowAllTicketsBoughtByShowTime.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowAllTicketsBoughtByShowTime.Name = "btnShowAllTicketsBoughtByShowTime";
-            this.btnShowAllTicketsBoughtByShowTime.Size = new System.Drawing.Size(154, 57);
-            this.btnShowAllTicketsBoughtByShowTime.TabIndex = 4;
-            this.btnShowAllTicketsBoughtByShowTime.Text = "Xem Các Vé Được Bán Theo Lịch Chiếu";
-            this.btnShowAllTicketsBoughtByShowTime.UseVisualStyleBackColor = true;
-            this.btnShowAllTicketsBoughtByShowTime.Click += new System.EventHandler(this.btnShowAllTicketsBoughtByShowTime_Click);
-            // 
-            // btnAddTicketsByShowTime
-            // 
-            this.btnAddTicketsByShowTime.Location = new System.Drawing.Point(4, 4);
-            this.btnAddTicketsByShowTime.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddTicketsByShowTime.Name = "btnAddTicketsByShowTime";
-            this.btnAddTicketsByShowTime.Size = new System.Drawing.Size(154, 57);
-            this.btnAddTicketsByShowTime.TabIndex = 0;
-            this.btnAddTicketsByShowTime.Text = "Tự Động Thêm Vé Theo Lịch Chiếu\r\n";
-            this.btnAddTicketsByShowTime.UseVisualStyleBackColor = true;
-            this.btnAddTicketsByShowTime.Click += new System.EventHandler(this.btnAddTicketsByShowTime_Click);
-            // 
-            // btnAllListShowTimes
-            // 
-            this.btnAllListShowTimes.Location = new System.Drawing.Point(814, 4);
-            this.btnAllListShowTimes.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAllListShowTimes.Name = "btnAllListShowTimes";
-            this.btnAllListShowTimes.Size = new System.Drawing.Size(154, 57);
-            this.btnAllListShowTimes.TabIndex = 3;
-            this.btnAllListShowTimes.Text = "Xem Tất Cả Lịch Chiếu\r\n";
-            this.btnAllListShowTimes.UseVisualStyleBackColor = true;
-            this.btnAllListShowTimes.Click += new System.EventHandler(this.btnAllListShowTimes_Click);
+            this.pnTitle.Controls.Add(this.btnShowShowTimeNotCreateTickets);
+            this.pnTitle.Controls.Add(this.btnShowAllTicketsBoughtByShowTime);
+            this.pnTitle.Controls.Add(this.btnShowAllTicketsByShowTime);
+            this.pnTitle.Controls.Add(this.btnAddTicketsByShowTime);
+            this.pnTitle.Controls.Add(this.btnAllListShowTimes);
+            this.pnTitle.Controls.Add(this.btnDeleteTicketsByShowTime);
+            this.pnTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTitle.Location = new System.Drawing.Point(0, 0);
+            this.pnTitle.Name = "pnTitle";
+            this.pnTitle.Size = new System.Drawing.Size(1136, 52);
+            this.pnTitle.TabIndex = 12;
             // 
             // btnShowShowTimeNotCreateTickets
             // 
-            this.btnShowShowTimeNotCreateTickets.Location = new System.Drawing.Point(652, 4);
-            this.btnShowShowTimeNotCreateTickets.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowShowTimeNotCreateTickets.Location = new System.Drawing.Point(715, 3);
             this.btnShowShowTimeNotCreateTickets.Name = "btnShowShowTimeNotCreateTickets";
-            this.btnShowShowTimeNotCreateTickets.Size = new System.Drawing.Size(154, 57);
-            this.btnShowShowTimeNotCreateTickets.TabIndex = 3;
-            this.btnShowShowTimeNotCreateTickets.Text = "Xem Lịch Chiếu Chưa Được Tạo Vé";
+            this.btnShowShowTimeNotCreateTickets.Size = new System.Drawing.Size(200, 46);
+            this.btnShowShowTimeNotCreateTickets.TabIndex = 7;
+            this.btnShowShowTimeNotCreateTickets.Text = "Xem lịch chiếu chưa tạo";
             this.btnShowShowTimeNotCreateTickets.UseVisualStyleBackColor = true;
-            this.btnShowShowTimeNotCreateTickets.Click += new System.EventHandler(this.btnShowShowTimeNotCreateTickets_Click);
+            // 
+            // btnShowAllTicketsBoughtByShowTime
+            // 
+            this.btnShowAllTicketsBoughtByShowTime.Location = new System.Drawing.Point(349, 3);
+            this.btnShowAllTicketsBoughtByShowTime.Name = "btnShowAllTicketsBoughtByShowTime";
+            this.btnShowAllTicketsBoughtByShowTime.Size = new System.Drawing.Size(156, 46);
+            this.btnShowAllTicketsBoughtByShowTime.TabIndex = 6;
+            this.btnShowAllTicketsBoughtByShowTime.Text = "Xem vé đã bán";
+            this.btnShowAllTicketsBoughtByShowTime.UseVisualStyleBackColor = true;
+            // 
+            // btnShowAllTicketsByShowTime
+            // 
+            this.btnShowAllTicketsByShowTime.Location = new System.Drawing.Point(511, 3);
+            this.btnShowAllTicketsByShowTime.Name = "btnShowAllTicketsByShowTime";
+            this.btnShowAllTicketsByShowTime.Size = new System.Drawing.Size(198, 46);
+            this.btnShowAllTicketsByShowTime.TabIndex = 5;
+            this.btnShowAllTicketsByShowTime.Text = "Xem tất cả các vé";
+            this.btnShowAllTicketsByShowTime.UseVisualStyleBackColor = true;
+            // 
+            // btnAddTicketsByShowTime
+            // 
+            this.btnAddTicketsByShowTime.Location = new System.Drawing.Point(20, 3);
+            this.btnAddTicketsByShowTime.Name = "btnAddTicketsByShowTime";
+            this.btnAddTicketsByShowTime.Size = new System.Drawing.Size(159, 46);
+            this.btnAddTicketsByShowTime.TabIndex = 0;
+            this.btnAddTicketsByShowTime.Text = " Tự động thêm vé";
+            this.btnAddTicketsByShowTime.UseVisualStyleBackColor = true;
+            // 
+            // btnAllListShowTimes
+            // 
+            this.btnAllListShowTimes.Location = new System.Drawing.Point(921, 3);
+            this.btnAllListShowTimes.Name = "btnAllListShowTimes";
+            this.btnAllListShowTimes.Size = new System.Drawing.Size(192, 46);
+            this.btnAllListShowTimes.TabIndex = 3;
+            this.btnAllListShowTimes.Text = "Xem tất cả lịch chiếu";
+            this.btnAllListShowTimes.UseVisualStyleBackColor = true;
             // 
             // btnDeleteTicketsByShowTime
             // 
-            this.btnDeleteTicketsByShowTime.Location = new System.Drawing.Point(166, 4);
-            this.btnDeleteTicketsByShowTime.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteTicketsByShowTime.Location = new System.Drawing.Point(185, 3);
             this.btnDeleteTicketsByShowTime.Name = "btnDeleteTicketsByShowTime";
-            this.btnDeleteTicketsByShowTime.Size = new System.Drawing.Size(154, 57);
+            this.btnDeleteTicketsByShowTime.Size = new System.Drawing.Size(158, 46);
             this.btnDeleteTicketsByShowTime.TabIndex = 1;
-            this.btnDeleteTicketsByShowTime.Text = "Xóa Vé Theo Lịch Chiếu";
+            this.btnDeleteTicketsByShowTime.Text = "Xoá vé theo lịch";
             this.btnDeleteTicketsByShowTime.UseVisualStyleBackColor = true;
-            this.btnDeleteTicketsByShowTime.Click += new System.EventHandler(this.btnDeleteTicketsByShowTime_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.lsvAllListShowTimes);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(859, 64);
+            this.panel1.Location = new System.Drawing.Point(609, 52);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(689, 574);
-            this.panel1.TabIndex = 11;
+            this.panel1.Size = new System.Drawing.Size(527, 484);
+            this.panel1.TabIndex = 13;
             // 
             // lsvAllListShowTimes
             // 
@@ -147,13 +135,13 @@
             this.lsvAllListShowTimes.FullRowSelect = true;
             this.lsvAllListShowTimes.GridLines = true;
             this.lsvAllListShowTimes.HideSelection = false;
-            this.lsvAllListShowTimes.Location = new System.Drawing.Point(7, 7);
+            this.lsvAllListShowTimes.Location = new System.Drawing.Point(2, 1);
+            this.lsvAllListShowTimes.Margin = new System.Windows.Forms.Padding(2);
             this.lsvAllListShowTimes.Name = "lsvAllListShowTimes";
-            this.lsvAllListShowTimes.Size = new System.Drawing.Size(663, 564);
-            this.lsvAllListShowTimes.TabIndex = 9;
+            this.lsvAllListShowTimes.Size = new System.Drawing.Size(523, 482);
+            this.lsvAllListShowTimes.TabIndex = 10;
             this.lsvAllListShowTimes.UseCompatibleStateImageBehavior = false;
             this.lsvAllListShowTimes.View = System.Windows.Forms.View.Details;
-            this.lsvAllListShowTimes.Click += new System.EventHandler(this.lsvAllListShowTimes_Click);
             // 
             // columnHeader1
             // 
@@ -182,22 +170,22 @@
             this.dtgvTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvTicket.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvTicket.Location = new System.Drawing.Point(0, 64);
-            this.dtgvTicket.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgvTicket.Location = new System.Drawing.Point(0, 52);
             this.dtgvTicket.Name = "dtgvTicket";
-            this.dtgvTicket.Size = new System.Drawing.Size(859, 574);
-            this.dtgvTicket.TabIndex = 12;
+            this.dtgvTicket.Size = new System.Drawing.Size(609, 484);
+            this.dtgvTicket.TabIndex = 14;
             // 
             // TicketsUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dtgvTicket);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel61);
+            this.Controls.Add(this.pnTitle);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TicketsUC";
-            this.Size = new System.Drawing.Size(1548, 638);
-            this.panel61.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(1136, 536);
+            this.pnTitle.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTicket)).EndInit();
             this.ResumeLayout(false);
@@ -206,12 +194,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel61;
-        private System.Windows.Forms.Button btnShowAllTicketsByShowTime;
+        private System.Windows.Forms.Panel pnTitle;
+        private System.Windows.Forms.Button btnShowShowTimeNotCreateTickets;
         private System.Windows.Forms.Button btnShowAllTicketsBoughtByShowTime;
+        private System.Windows.Forms.Button btnShowAllTicketsByShowTime;
         private System.Windows.Forms.Button btnAddTicketsByShowTime;
         private System.Windows.Forms.Button btnAllListShowTimes;
-        private System.Windows.Forms.Button btnShowShowTimeNotCreateTickets;
         private System.Windows.Forms.Button btnDeleteTicketsByShowTime;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView lsvAllListShowTimes;

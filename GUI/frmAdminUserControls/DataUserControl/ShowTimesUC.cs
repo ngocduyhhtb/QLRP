@@ -184,5 +184,5 @@ namespace GUI.frmAdminUserControls.DataUserControl
 				e.SuppressKeyPress = true;//Tắt tiếng *ting của windows
 			}
 		}
-	}
+    }
 }

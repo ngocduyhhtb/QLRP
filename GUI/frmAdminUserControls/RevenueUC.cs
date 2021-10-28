@@ -56,5 +56,6 @@ namespace GUI.frmAdminUserControls
             frmReport frm = new frmReport(cboSelectMovie.SelectedValue.ToString(), dtmFromDate.Value, dtmToDate.Value);
             frm.ShowDialog();
         }
+
     }
 }

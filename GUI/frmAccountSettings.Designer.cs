@@ -46,115 +46,115 @@
             // 
             this.txtUsername.Enabled = false;
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(264, 60);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsername.Location = new System.Drawing.Point(192, 72);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(338, 37);
+            this.txtUsername.Size = new System.Drawing.Size(235, 31);
             this.txtUsername.TabIndex = 1;
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(15, 63);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(43, 83);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(193, 31);
+            this.lblUsername.Size = new System.Drawing.Size(114, 20);
             this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "Tên tài khoản :";
+            this.lblUsername.Text = "Tên tài khoản:";
             // 
             // txtStaffID
             // 
             this.txtStaffID.Enabled = false;
             this.txtStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStaffID.Location = new System.Drawing.Point(264, 15);
-            this.txtStaffID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStaffID.Location = new System.Drawing.Point(192, 31);
+            this.txtStaffID.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtStaffID.Name = "txtStaffID";
-            this.txtStaffID.Size = new System.Drawing.Size(338, 37);
+            this.txtStaffID.Size = new System.Drawing.Size(235, 31);
             this.txtStaffID.TabIndex = 0;
             // 
             // lblStaffID
             // 
             this.lblStaffID.AutoSize = true;
-            this.lblStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffID.Location = new System.Drawing.Point(15, 18);
-            this.lblStaffID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaffID.Location = new System.Drawing.Point(43, 42);
+            this.lblStaffID.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblStaffID.Name = "lblStaffID";
-            this.lblStaffID.Size = new System.Drawing.Size(190, 31);
+            this.lblStaffID.Size = new System.Drawing.Size(113, 20);
             this.lblStaffID.TabIndex = 1;
-            this.lblStaffID.Text = "Mã nhân viên :";
+            this.lblStaffID.Text = "Mã nhân viên:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(15, 193);
-            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(43, 165);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(190, 31);
+            this.lblPassword.Size = new System.Drawing.Size(114, 20);
             this.lblPassword.TabIndex = 1;
-            this.lblPassword.Text = "Mật khẩu mới :";
+            this.lblPassword.Text = "Mật khẩu mới:";
             // 
             // lblReEnter
             // 
             this.lblReEnter.AutoSize = true;
-            this.lblReEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReEnter.Location = new System.Drawing.Point(15, 239);
-            this.lblReEnter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblReEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReEnter.Location = new System.Drawing.Point(43, 206);
+            this.lblReEnter.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblReEnter.Name = "lblReEnter";
-            this.lblReEnter.Size = new System.Drawing.Size(225, 31);
+            this.lblReEnter.Size = new System.Drawing.Size(137, 20);
             this.lblReEnter.TabIndex = 1;
-            this.lblReEnter.Text = "Nhập lại MK mới :";
+            this.lblReEnter.Text = "Nhập lại MK mới:";
             // 
             // lblConfirmPass
             // 
             this.lblConfirmPass.AutoSize = true;
-            this.lblConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmPass.Location = new System.Drawing.Point(15, 122);
-            this.lblConfirmPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmPass.Location = new System.Drawing.Point(43, 124);
+            this.lblConfirmPass.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblConfirmPass.Name = "lblConfirmPass";
-            this.lblConfirmPass.Size = new System.Drawing.Size(189, 31);
+            this.lblConfirmPass.Size = new System.Drawing.Size(105, 20);
             this.lblConfirmPass.TabIndex = 1;
-            this.lblConfirmPass.Text = "Mật khẩu cũ :";
+            this.lblConfirmPass.Text = "Mật khẩu cũ:";
             // 
             // txtNewPass
             // 
             this.txtNewPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNewPass.Location = new System.Drawing.Point(263, 190);
-            this.txtNewPass.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNewPass.Location = new System.Drawing.Point(192, 154);
+            this.txtNewPass.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtNewPass.Name = "txtNewPass";
-            this.txtNewPass.Size = new System.Drawing.Size(338, 37);
+            this.txtNewPass.Size = new System.Drawing.Size(235, 31);
             this.txtNewPass.TabIndex = 2;
             this.txtNewPass.UseSystemPasswordChar = true;
             // 
             // txtReEnter
             // 
             this.txtReEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReEnter.Location = new System.Drawing.Point(263, 236);
-            this.txtReEnter.Margin = new System.Windows.Forms.Padding(4);
+            this.txtReEnter.Location = new System.Drawing.Point(192, 195);
+            this.txtReEnter.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtReEnter.Name = "txtReEnter";
-            this.txtReEnter.Size = new System.Drawing.Size(338, 37);
+            this.txtReEnter.Size = new System.Drawing.Size(235, 31);
             this.txtReEnter.TabIndex = 3;
             this.txtReEnter.UseSystemPasswordChar = true;
             // 
             // txtConfirmPass
             // 
             this.txtConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmPass.Location = new System.Drawing.Point(264, 119);
-            this.txtConfirmPass.Margin = new System.Windows.Forms.Padding(4);
+            this.txtConfirmPass.Location = new System.Drawing.Point(192, 113);
+            this.txtConfirmPass.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtConfirmPass.Name = "txtConfirmPass";
-            this.txtConfirmPass.Size = new System.Drawing.Size(338, 37);
+            this.txtConfirmPass.Size = new System.Drawing.Size(235, 31);
             this.txtConfirmPass.TabIndex = 4;
             this.txtConfirmPass.UseSystemPasswordChar = true;
             // 
             // btnApply
             // 
             this.btnApply.AutoSize = true;
-            this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApply.Location = new System.Drawing.Point(337, 292);
-            this.btnApply.Margin = new System.Windows.Forms.Padding(4);
+            this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApply.Location = new System.Drawing.Point(226, 236);
+            this.btnApply.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(127, 42);
+            this.btnApply.Size = new System.Drawing.Size(112, 36);
             this.btnApply.TabIndex = 2;
             this.btnApply.Text = "Cập nhật";
             this.btnApply.UseVisualStyleBackColor = true;
@@ -163,11 +163,11 @@
             // btnCancel
             // 
             this.btnCancel.AutoSize = true;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(501, 292);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(348, 236);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 42);
+            this.btnCancel.Size = new System.Drawing.Size(79, 36);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Thoát";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -175,9 +175,9 @@
             // 
             // frmAccountSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 356);
+            this.ClientSize = new System.Drawing.Size(481, 302);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.lblStaffID);
@@ -190,7 +190,8 @@
             this.Controls.Add(this.txtReEnter);
             this.Controls.Add(this.txtNewPass);
             this.Controls.Add(this.txtUsername);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "frmAccountSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Đổi Mật Khẩu";

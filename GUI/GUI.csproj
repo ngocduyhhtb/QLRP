@@ -47,12 +47,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -93,8 +87,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.DirectoryServices" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -127,9 +119,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataRevenue.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DinhDangPhim.cs">
-      <DependentUpon>QLRP.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Genre.cs" />
@@ -268,50 +257,8 @@
     <Compile Include="frmCustomer.Designer.cs">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="KhachHang.cs">
-      <DependentUpon>QLRP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LichChieu.cs">
-      <DependentUpon>QLRP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LoaiManHinh.cs">
-      <DependentUpon>QLRP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NhanVien.cs">
-      <DependentUpon>QLRP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Phim.cs">
-      <DependentUpon>QLRP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PhongChieu.cs">
-      <DependentUpon>QLRP.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLRP.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLRP.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QLRP.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLRP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QLRP.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLRP.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="TaiKhoan.cs">
-      <DependentUpon>QLRP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TheLoai.cs">
-      <DependentUpon>QLRP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ve.cs">
-      <DependentUpon>QLRP.tt</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frmAccountSettings.resx">
       <DependentUpon>frmAccountSettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -391,7 +338,6 @@
     <None Include="DataRevenue.xss">
       <DependentUpon>DataRevenue.xsd</DependentUpon>
     </None>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -411,13 +357,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="QLRP.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLRP.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="QLRP.edmx.diagram">
-      <DependentUpon>QLRP.edmx</DependentUpon>
-    </None>
     <None Include="Resources\Apps-Dialog-Shutdown-icon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -482,21 +421,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login_user_profile_account_logout_people_man_human-512.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="QLRP.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLRP.edmx</DependentUpon>
-      <LastGenOutput>QLRP.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="QLRP.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLRP.edmx</DependentUpon>
-      <LastGenOutput>QLRP.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -164,5 +164,10 @@ namespace GUI.frmAdminUserControls
 				e.SuppressKeyPress = true;//Tắt tiếng *ting của windows
 			}
 		}
-	}
+
+        private void AccountUC_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

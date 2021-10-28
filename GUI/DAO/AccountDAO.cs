@@ -31,22 +31,20 @@ namespace GUI.DAO
             Array.Reverse(arr);
             return new string(arr);
         }
-       
+
         public static int Login(string userName, string passWord)
         {
-            string passwordEncrypt = PasswordEncryption(passWord);
-            using (var dbContext = new QLRPEntities())
-            {
-                var result = dbContext.TaiKhoans.Where(tk => tk.UserName == userName && tk.Pass == passwordEncrypt);
-                if(result == null || result.Count() <0)
-                {
-                    return -1;
-                }else if(result != null && result.Count() > 0)
-                {
-                    return 1;
-                }
-                else { return 0; }
-            }
+            string pass = PasswordEncryption(passWord);
+
+            string query = "USP_Login @userName , @passWord";
+            DataTable result = DataProvider.ExecuteQuery(query, new object[] { userName, pass });
+
+            if (result == null)
+                return -1;
+            else if (result.Rows.Count > 0)
+                return 1;
+            else
+                return 0;
 
         }
 
@@ -64,20 +62,13 @@ namespace GUI.DAO
         public static Account GetAccountByUserName(string userName)
         {
             DataTable data = DataProvider.ExecuteQuery("Select * from TaiKhoan where userName = '" + userName + "'");
-            try
+
+            foreach (DataRow row in data.Rows)
             {
-                using(var dbContext = new QLRPEntities())
-                {
-                    var queryResult = dbContext.TaiKhoans.FirstOrDefault(tk => tk.UserName == userName);
-                    Console.WriteLine(queryResult);
-                    return new Account(queryResult);
-                    /*if(queryResult != null && queryResult.)*/
-                }
-               
-            }catch (Exception e)
-            {
-                throw (e);
+                return new Account(row);
             }
+
+            return null;
         }
 
         public static void DeleteAccountByIdStaff(string idStaff)
