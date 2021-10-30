@@ -54,7 +54,7 @@
             // 
             // btnAccountUC
             // 
-            this.btnAccountUC.Location = new System.Drawing.Point(509, 29);
+            this.btnAccountUC.Location = new System.Drawing.Point(924, 29);
             this.btnAccountUC.Name = "btnAccountUC";
             this.btnAccountUC.Size = new System.Drawing.Size(109, 39);
             this.btnAccountUC.TabIndex = 4;
@@ -64,7 +64,7 @@
             // 
             // btnCustomerUC
             // 
-            this.btnCustomerUC.Location = new System.Drawing.Point(394, 29);
+            this.btnCustomerUC.Location = new System.Drawing.Point(729, 29);
             this.btnCustomerUC.Name = "btnCustomerUC";
             this.btnCustomerUC.Size = new System.Drawing.Size(109, 39);
             this.btnCustomerUC.TabIndex = 3;
@@ -74,7 +74,7 @@
             // 
             // btnStaffUC
             // 
-            this.btnStaffUC.Location = new System.Drawing.Point(280, 29);
+            this.btnStaffUC.Location = new System.Drawing.Point(522, 29);
             this.btnStaffUC.Name = "btnStaffUC";
             this.btnStaffUC.Size = new System.Drawing.Size(109, 39);
             this.btnStaffUC.TabIndex = 2;
@@ -84,7 +84,7 @@
             // 
             // btnDataUC
             // 
-            this.btnDataUC.Location = new System.Drawing.Point(163, 29);
+            this.btnDataUC.Location = new System.Drawing.Point(304, 29);
             this.btnDataUC.Name = "btnDataUC";
             this.btnDataUC.Size = new System.Drawing.Size(109, 39);
             this.btnDataUC.TabIndex = 1;
@@ -94,7 +94,7 @@
             // 
             // btnRevenueUC
             // 
-            this.btnRevenueUC.Location = new System.Drawing.Point(49, 29);
+            this.btnRevenueUC.Location = new System.Drawing.Point(88, 29);
             this.btnRevenueUC.Name = "btnRevenueUC";
             this.btnRevenueUC.Size = new System.Drawing.Size(109, 39);
             this.btnRevenueUC.TabIndex = 0;
