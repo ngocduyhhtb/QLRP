@@ -8,24 +8,24 @@ namespace GUI
 {
     public partial class frmAccountSettings : Form
     {
-        Account loginAccount;
+        TaiKhoan loginAccount;
 
-        public Account LoginAccount
+        public TaiKhoan LoginAccount
         {
             get { return loginAccount; }
             set { loginAccount = value; ChangeAccount(loginAccount); }
         }
 
-        public frmAccountSettings(Account account)
+        public frmAccountSettings(TaiKhoan account)
         {
             InitializeComponent();
 
             LoginAccount = account;
         }
 
-        void ChangeAccount(Account account)
+        void ChangeAccount(TaiKhoan account)
         {
-            txtStaffID.Text = account.StaffID.ToString();
+            txtStaffID.Text = account.idNV.ToString();
             txtUsername.Text = account.UserName.ToString();
         }
 

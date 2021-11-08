@@ -7,24 +7,24 @@ namespace GUI
 {
     public partial class frmDashBoard : Form
     {
-        public frmDashBoard(Account acc)
+        public frmDashBoard(TaiKhoan acc)
         {
             InitializeComponent();
 
             this.LoginAccount = acc;
         }
 
-        private Account loginAccount;
+        private TaiKhoan loginAccount;
 
-        public Account LoginAccount
+        public TaiKhoan LoginAccount
         {
             get { return loginAccount; }
-            set { loginAccount = value; ChangeAccount(loginAccount.Type); }
+            set { loginAccount = value; ChangeAccount(loginAccount.LoaiTK); }
         }
 
         void ChangeAccount(int type)
         {
-            if (loginAccount.Type == 2) btnAdmin.Enabled = false;
+            if (loginAccount.LoaiTK == 2) btnAdmin.Enabled = false;
             lblAccountInfo.Text += LoginAccount.UserName;
         }
 

@@ -34,17 +34,27 @@ namespace GUI.DAO
 
         public static int Login(string userName, string passWord)
         {
-            string pass = PasswordEncryption(passWord);
-
-            string query = "USP_Login @userName , @passWord";
-            DataTable result = DataProvider.ExecuteQuery(query, new object[] { userName, pass });
-
-            if (result == null)
-                return -1;
-            else if (result.Rows.Count > 0)
-                return 1;
-            else
-                return 0;
+            try
+            {
+                string hashPassword = PasswordEncryption(passWord);
+                using(var dbContext = new QLRPEntities())
+                {
+                    var queryResult = dbContext.TaiKhoans.Where(tk => tk.UserName == userName).FirstOrDefault<TaiKhoan>();
+                    if(queryResult != null)
+                    {
+                        if (queryResult.Pass == hashPassword)
+                        {
+                            return 1;
+                        }
+                        else { return 0; };
+                    } else { return -1; }
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw error;
+            }
 
         }
 
@@ -59,21 +69,47 @@ namespace GUI.DAO
             return result > 0;
         }
 
-        public static Account GetAccountByUserName(string userName)
+        public static TaiKhoan GetAccountByUserName(string userName)
         {
-            DataTable data = DataProvider.ExecuteQuery("Select * from TaiKhoan where userName = '" + userName + "'");
-
-            foreach (DataRow row in data.Rows)
+            try
             {
-                return new Account(row);
+                using (var dbContext = new QLRPEntities())
+                {
+                    var queryResult = dbContext.TaiKhoans.Where(tk => tk.UserName == userName).FirstOrDefault<TaiKhoan>();
+                    if (queryResult != null)
+                    {
+                        return queryResult;
+                    }
+                    else { return null; }
+                }
             }
-
-            return null;
+            catch(Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw error;
+            }
         }
 
         public static void DeleteAccountByIdStaff(string idStaff)
         {
-            DataProvider.ExecuteQuery("DELETE dbo.TaiKhoan WHERE idNV = '" + idStaff + "'");
+            /*DataProvider.ExecuteQuery("DELETE dbo.TaiKhoan WHERE idNV = '" + idStaff + "'");*/
+            try
+            {
+                using (var dbContext = new QLRPEntities())
+                {
+                   TaiKhoan taiKhoan = dbContext.TaiKhoans.Where(tk => tk.idNV == idStaff).FirstOrDefault<TaiKhoan>();
+                    if (taiKhoan != null)
+                    {
+                        dbContext.TaiKhoans.Remove(taiKhoan);
+                        dbContext.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw error;
+            }
         }
 
 		public static DataTable GetAccountList()
@@ -96,8 +132,26 @@ namespace GUI.DAO
 
 		public static bool DeleteAccount(string username)
 		{
-			int result = DataProvider.ExecuteNonQuery("DELETE dbo.TaiKhoan WHERE UserName = N'" + username + "'");
-			return result > 0;
+            try
+            {
+                using (var dbContext = new QLRPEntities())
+                {
+                    var taiKhoan = dbContext.TaiKhoans.Where(tk => tk.UserName == username).FirstOrDefault<TaiKhoan>();
+                    if (taiKhoan != null)
+                    {
+                        dbContext.TaiKhoans.Remove(taiKhoan);
+                        dbContext.SaveChanges();
+                    }
+                    return taiKhoan != null;
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw error;
+            }
+            /*int result = DataProvider.ExecuteNonQuery("DELETE dbo.TaiKhoan WHERE UserName = N'" + username + "'");*/
+	/*		return result > 0;*/
 		}
 
 		public static DataTable SearchAccountByStaffName(string name)

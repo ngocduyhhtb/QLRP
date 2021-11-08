@@ -21,7 +21,7 @@ namespace GUI
             int result = Login(userName, passWord);
             if (result == 1)
             {
-                Account loginAccount = AccountDAO.GetAccountByUserName(userName);
+                TaiKhoan loginAccount = AccountDAO.GetAccountByUserName(userName);
                 frmDashBoard frm = new frmDashBoard(loginAccount);
                 this.Hide();
                 frm.ShowDialog();

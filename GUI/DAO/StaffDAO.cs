@@ -8,28 +8,53 @@ namespace GUI.DAO
 {
     public class StaffDAO
     {
-		public static Staff GetStaffByID(string id)
+		public static NhanVien GetStaffByID(string id)
 		{
-			Staff staff = null;
+            /*Staff staff = null;
 			DataTable data = DataProvider.ExecuteQuery("SELECT * FROM dbo.NhanVien WHERE id = '" + id + "'");
 			foreach (DataRow item in data.Rows)
 			{
 				staff = new Staff(item);
 				return staff;
 			}
-			return staff;
-		}
+			return staff;*/
+            try
+            {
+                using (var dbContext = new QLRPEntities())
+                {
+                    var queryResult = dbContext.NhanViens.Select(row => row).FirstOrDefault<NhanVien>();
+                    return queryResult;
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw error;
+            }
+        }
 
-		public static List<Staff> GetStaff()
+		public static List<NhanVien> GetStaff()
 		{
-			List<Staff> staffList = new List<Staff>();
+            /*List<Staff> staffList = new List<Staff>();
 			DataTable data = DataProvider.ExecuteQuery("SELECT * FROM dbo.NhanVien");
 			foreach (DataRow item in data.Rows)
 			{
 				Staff staff = new Staff(item);
 				staffList.Add(staff);
 			}
-			return staffList;
+			return staffList;*/
+            try
+            {
+                using(var dbContext = new QLRPEntities())
+                {
+                    var queryResult = dbContext.NhanViens.Select(row => row).ToList<NhanVien>();
+                    return queryResult;
+                }
+            }catch(Exception error)
+            {
+                Console.WriteLine(error.Message);
+                throw error;
+            }
 		}
 
         public static DataTable GetListStaff()

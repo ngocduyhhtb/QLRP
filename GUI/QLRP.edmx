@@ -1,0 +1,1407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QLRPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DinhDangPhim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idPhim" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idLoaiManHinh" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" Nullable="false" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="SDT" Type="varchar" MaxLength="100" />
+          <Property Name="CMND" Type="int" Nullable="false" />
+          <Property Name="DiemTichLuy" Type="int" />
+        </EntityType>
+        <EntityType Name="LichChieu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ThoiGianChieu" Type="datetime" Nullable="false" />
+          <Property Name="idPhong" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idDinhDang" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GiaVe" Type="money" Nullable="false" />
+          <Property Name="TrangThai" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoaiManHinh">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenMH" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" Nullable="false" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="SDT" Type="varchar" MaxLength="100" />
+          <Property Name="CMND" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhanLoaiPhim">
+          <Key>
+            <PropertyRef Name="idPhim" />
+            <PropertyRef Name="idTheLoai" />
+          </Key>
+          <Property Name="idPhim" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idTheLoai" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Phim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenPhim" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ThoiLuong" Type="float" Nullable="false" />
+          <Property Name="NgayKhoiChieu" Type="date" Nullable="false" />
+          <Property Name="NgayKetThuc" Type="date" Nullable="false" />
+          <Property Name="SanXuat" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DaoDien" Type="nvarchar" MaxLength="100" />
+          <Property Name="NamSX" Type="int" Nullable="false" />
+          <Property Name="ApPhich" Type="image" />
+        </EntityType>
+        <EntityType Name="PhongChieu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenPhong" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="idManHinh" Type="varchar" MaxLength="50" />
+          <Property Name="SoChoNgoi" Type="int" Nullable="false" />
+          <Property Name="TinhTrang" Type="int" Nullable="false" />
+          <Property Name="SoHangGhe" Type="int" Nullable="false" />
+          <Property Name="SoGheMotHang" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QLRP.dbo.TaiKhoan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Pass" />
+            <PropertyRef Name="LoaiTK" />
+            <PropertyRef Name="idNV" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Pass" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="LoaiTK" Type="int" Nullable="false" />
+          <Property Name="idNV" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TheLoai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenTheLoai" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Ve">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoaiVe" Type="int" />
+          <Property Name="idLichChieu" Type="varchar" MaxLength="50" />
+          <Property Name="MaGheNgoi" Type="varchar" MaxLength="50" />
+          <Property Name="idKhachHang" Type="varchar" MaxLength="50" />
+          <Property Name="TrangThai" Type="int" Nullable="false" />
+          <Property Name="TienBanVe" Type="money" />
+        </EntityType>
+        <Association Name="FK__DinhDangP__idLoa__32E0915F">
+          <End Role="LoaiManHinh" Type="Self.LoaiManHinh" Multiplicity="1" />
+          <End Role="DinhDangPhim" Type="Self.DinhDangPhim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiManHinh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DinhDangPhim">
+              <PropertyRef Name="idLoaiManHinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DinhDangP__idPhi__31EC6D26">
+          <End Role="Phim" Type="Self.Phim" Multiplicity="1" />
+          <End Role="DinhDangPhim" Type="Self.DinhDangPhim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phim">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DinhDangPhim">
+              <PropertyRef Name="idPhim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LichChieu__idDin__3D5E1FD2">
+          <End Role="DinhDangPhim" Type="Self.DinhDangPhim" Multiplicity="1" />
+          <End Role="LichChieu" Type="Self.LichChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DinhDangPhim">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LichChieu">
+              <PropertyRef Name="idDinhDang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LichChieu__idPho__3C69FB99">
+          <End Role="PhongChieu" Type="Self.PhongChieu" Multiplicity="1" />
+          <End Role="LichChieu" Type="Self.LichChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhongChieu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LichChieu">
+              <PropertyRef Name="idPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhanLoaiP__idPhi__37A5467C">
+          <End Role="Phim" Type="Self.Phim" Multiplicity="1" />
+          <End Role="PhanLoaiPhim" Type="Self.PhanLoaiPhim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phim">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhanLoaiPhim">
+              <PropertyRef Name="idPhim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhanLoaiP__idThe__38996AB5">
+          <End Role="TheLoai" Type="Self.TheLoai" Multiplicity="1" />
+          <End Role="PhanLoaiPhim" Type="Self.PhanLoaiPhim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TheLoai">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhanLoaiPhim">
+              <PropertyRef Name="idTheLoai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhongChie__idMan__2D27B809">
+          <End Role="LoaiManHinh" Type="Self.LoaiManHinh" Multiplicity="0..1" />
+          <End Role="PhongChieu" Type="Self.PhongChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiManHinh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhongChieu">
+              <PropertyRef Name="idManHinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaiKhoan__idNV__276EDEB3">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="idNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ve__idKhachHang__46E78A0C">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+          <End Role="Ve" Type="Self.Ve" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ve">
+              <PropertyRef Name="idKhachHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ve__TienBanVe__45F365D3">
+          <End Role="LichChieu" Type="Self.LichChieu" Multiplicity="0..1" />
+          <End Role="Ve" Type="Self.Ve" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LichChieu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ve">
+              <PropertyRef Name="idLichChieu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fuConvertToUnsign1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="strInput" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="USP_DeleteTicketsByShowTimes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idlichChieu" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_GetAccountList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_GetAllListShowTimes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_GetCinema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_GetCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_GetListFormatMovie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_GetListGenreByMovie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPhim" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_GetListShowTimesByFormatMovie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="varchar" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="USP_GetListShowTimesNotCreateTickets" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_GetMovie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_GetReportRevenueByMovieAndDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idMovie" Type="varchar" Mode="In" />
+          <Parameter Name="fromDate" Type="date" Mode="In" />
+          <Parameter Name="toDate" Type="date" Mode="In" />
+        </Function>
+        <Function Name="USP_GetRevenueByMovieAndDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idMovie" Type="varchar" Mode="In" />
+          <Parameter Name="fromDate" Type="date" Mode="In" />
+          <Parameter Name="toDate" Type="date" Mode="In" />
+        </Function>
+        <Function Name="USP_GetShowtime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_GetStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_InsertAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="loaiTK" Type="int" Mode="In" />
+          <Parameter Name="idnv" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_InsertCinema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCinema" Type="varchar" Mode="In" />
+          <Parameter Name="tenPhong" Type="nvarchar" Mode="In" />
+          <Parameter Name="idMH" Type="varchar" Mode="In" />
+          <Parameter Name="soChoNgoi" Type="int" Mode="In" />
+          <Parameter Name="tinhTrang" Type="int" Mode="In" />
+          <Parameter Name="soHangGhe" Type="int" Mode="In" />
+          <Parameter Name="soGheMotHang" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_InsertCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCus" Type="varchar" Mode="In" />
+          <Parameter Name="hoTen" Type="nvarchar" Mode="In" />
+          <Parameter Name="ngaySinh" Type="date" Mode="In" />
+          <Parameter Name="diaChi" Type="nvarchar" Mode="In" />
+          <Parameter Name="sdt" Type="varchar" Mode="In" />
+          <Parameter Name="cmnd" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_InsertFormatMovie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="varchar" Mode="In" />
+          <Parameter Name="idPhim" Type="varchar" Mode="In" />
+          <Parameter Name="idLoaiManHinh" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_InsertGenre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGenre" Type="varchar" Mode="In" />
+          <Parameter Name="ten" Type="nvarchar" Mode="In" />
+          <Parameter Name="moTa" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="USP_InsertMovie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="varchar" Mode="In" />
+          <Parameter Name="tenPhim" Type="nvarchar" Mode="In" />
+          <Parameter Name="moTa" Type="nvarchar" Mode="In" />
+          <Parameter Name="thoiLuong" Type="float" Mode="In" />
+          <Parameter Name="ngayKhoiChieu" Type="date" Mode="In" />
+          <Parameter Name="ngayKetThuc" Type="date" Mode="In" />
+          <Parameter Name="sanXuat" Type="nvarchar" Mode="In" />
+          <Parameter Name="daoDien" Type="nvarchar" Mode="In" />
+          <Parameter Name="namSX" Type="int" Mode="In" />
+          <Parameter Name="apPhich" Type="image" Mode="In" />
+        </Function>
+        <Function Name="USP_InsertScreenType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idScreenType" Type="varchar" Mode="In" />
+          <Parameter Name="ten" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="USP_InsertShowtime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="varchar" Mode="In" />
+          <Parameter Name="idPhong" Type="varchar" Mode="In" />
+          <Parameter Name="idDinhDang" Type="varchar" Mode="In" />
+          <Parameter Name="thoiGianChieu" Type="datetime" Mode="In" />
+          <Parameter Name="giaVe" Type="float" Mode="In" />
+        </Function>
+        <Function Name="USP_InsertStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idStaff" Type="varchar" Mode="In" />
+          <Parameter Name="hoTen" Type="nvarchar" Mode="In" />
+          <Parameter Name="ngaySinh" Type="date" Mode="In" />
+          <Parameter Name="diaChi" Type="nvarchar" Mode="In" />
+          <Parameter Name="sdt" Type="varchar" Mode="In" />
+          <Parameter Name="cmnd" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_InsertTicketByShowTimes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idlichChieu" Type="varchar" Mode="In" />
+          <Parameter Name="maGheNgoi" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userName" Type="nvarchar" Mode="In" />
+          <Parameter Name="pass" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_ResetPasswordtAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="USP_SearchAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="hoTen" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="USP_SearchCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="hoTen" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="USP_SearchShowtimeByMovieName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tenPhim" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="USP_SearchStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="hoTen" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="USP_UpdateAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="loaiTK" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_UpdateMovie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="varchar" Mode="In" />
+          <Parameter Name="tenPhim" Type="nvarchar" Mode="In" />
+          <Parameter Name="moTa" Type="nvarchar" Mode="In" />
+          <Parameter Name="thoiLuong" Type="float" Mode="In" />
+          <Parameter Name="ngayKhoiChieu" Type="date" Mode="In" />
+          <Parameter Name="ngayKetThuc" Type="date" Mode="In" />
+          <Parameter Name="sanXuat" Type="nvarchar" Mode="In" />
+          <Parameter Name="daoDien" Type="nvarchar" Mode="In" />
+          <Parameter Name="namSX" Type="int" Mode="In" />
+          <Parameter Name="apPhich" Type="image" Mode="In" />
+        </Function>
+        <Function Name="USP_UpdatePasswordForAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="pass" Type="varchar" Mode="In" />
+          <Parameter Name="newPass" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_UpdateShowtime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="varchar" Mode="In" />
+          <Parameter Name="idPhong" Type="varchar" Mode="In" />
+          <Parameter Name="idDinhDang" Type="varchar" Mode="In" />
+          <Parameter Name="thoiGianChieu" Type="datetime" Mode="In" />
+          <Parameter Name="giaVe" Type="float" Mode="In" />
+        </Function>
+        <Function Name="USP_UpdateStatusShowTimes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idLichChieu" Type="nvarchar" Mode="In" />
+          <Parameter Name="status" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="QLRPModelStoreContainer">
+          <EntitySet Name="DinhDangPhim" EntityType="Self.DinhDangPhim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LichChieu" EntityType="Self.LichChieu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiManHinh" EntityType="Self.LoaiManHinh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhanLoaiPhim" EntityType="Self.PhanLoaiPhim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phim" EntityType="Self.Phim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhongChieu" EntityType="Self.PhongChieu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TheLoai" EntityType="Self.TheLoai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ve" EntityType="Self.Ve" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TaiKhoan].[UserName] AS [UserName], 
+    [TaiKhoan].[Pass] AS [Pass], 
+    [TaiKhoan].[LoaiTK] AS [LoaiTK], 
+    [TaiKhoan].[idNV] AS [idNV]
+    FROM [dbo].[TaiKhoan] AS [TaiKhoan]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__DinhDangP__idLoa__32E0915F" Association="Self.FK__DinhDangP__idLoa__32E0915F">
+            <End Role="LoaiManHinh" EntitySet="LoaiManHinh" />
+            <End Role="DinhDangPhim" EntitySet="DinhDangPhim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DinhDangP__idPhi__31EC6D26" Association="Self.FK__DinhDangP__idPhi__31EC6D26">
+            <End Role="Phim" EntitySet="Phim" />
+            <End Role="DinhDangPhim" EntitySet="DinhDangPhim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LichChieu__idDin__3D5E1FD2" Association="Self.FK__LichChieu__idDin__3D5E1FD2">
+            <End Role="DinhDangPhim" EntitySet="DinhDangPhim" />
+            <End Role="LichChieu" EntitySet="LichChieu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LichChieu__idPho__3C69FB99" Association="Self.FK__LichChieu__idPho__3C69FB99">
+            <End Role="PhongChieu" EntitySet="PhongChieu" />
+            <End Role="LichChieu" EntitySet="LichChieu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhanLoaiP__idPhi__37A5467C" Association="Self.FK__PhanLoaiP__idPhi__37A5467C">
+            <End Role="Phim" EntitySet="Phim" />
+            <End Role="PhanLoaiPhim" EntitySet="PhanLoaiPhim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhanLoaiP__idThe__38996AB5" Association="Self.FK__PhanLoaiP__idThe__38996AB5">
+            <End Role="TheLoai" EntitySet="TheLoai" />
+            <End Role="PhanLoaiPhim" EntitySet="PhanLoaiPhim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhongChie__idMan__2D27B809" Association="Self.FK__PhongChie__idMan__2D27B809">
+            <End Role="LoaiManHinh" EntitySet="LoaiManHinh" />
+            <End Role="PhongChieu" EntitySet="PhongChieu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaiKhoan__idNV__276EDEB3" Association="Self.FK__TaiKhoan__idNV__276EDEB3">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ve__idKhachHang__46E78A0C" Association="Self.FK__Ve__idKhachHang__46E78A0C">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="Ve" EntitySet="Ve" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ve__TienBanVe__45F365D3" Association="Self.FK__Ve__TienBanVe__45F365D3">
+            <End Role="LichChieu" EntitySet="LichChieu" />
+            <End Role="Ve" EntitySet="Ve" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLRPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DinhDangPhim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idPhim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idLoaiManHinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="LoaiManHinh" Relationship="Self.FK__DinhDangP__idLoa__32E0915F" FromRole="DinhDangPhim" ToRole="LoaiManHinh" />
+          <NavigationProperty Name="Phim" Relationship="Self.FK__DinhDangP__idPhi__31EC6D26" FromRole="DinhDangPhim" ToRole="Phim" />
+          <NavigationProperty Name="LichChieux" Relationship="Self.FK__LichChieu__idDin__3D5E1FD2" FromRole="DinhDangPhim" ToRole="LichChieu" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CMND" Type="Int32" Nullable="false" />
+          <Property Name="DiemTichLuy" Type="Int32" />
+          <NavigationProperty Name="Ves" Relationship="Self.FK__Ve__idKhachHang__46E78A0C" FromRole="KhachHang" ToRole="Ve" />
+        </EntityType>
+        <EntityType Name="LichChieu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ThoiGianChieu" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="idPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idDinhDang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GiaVe" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TrangThai" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DinhDangPhim" Relationship="Self.FK__LichChieu__idDin__3D5E1FD2" FromRole="LichChieu" ToRole="DinhDangPhim" />
+          <NavigationProperty Name="PhongChieu" Relationship="Self.FK__LichChieu__idPho__3C69FB99" FromRole="LichChieu" ToRole="PhongChieu" />
+          <NavigationProperty Name="Ves" Relationship="Self.FK__Ve__TienBanVe__45F365D3" FromRole="LichChieu" ToRole="Ve" />
+        </EntityType>
+        <EntityType Name="LoaiManHinh">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenMH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DinhDangPhims" Relationship="Self.FK__DinhDangP__idLoa__32E0915F" FromRole="LoaiManHinh" ToRole="DinhDangPhim" />
+          <NavigationProperty Name="PhongChieux" Relationship="Self.FK__PhongChie__idMan__2D27B809" FromRole="LoaiManHinh" ToRole="PhongChieu" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CMND" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TaiKhoans" Relationship="Self.FK__TaiKhoan__idNV__276EDEB3" FromRole="NhanVien" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="Phim">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenPhim" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MoTa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiLuong" Type="Double" Nullable="false" />
+          <Property Name="NgayKhoiChieu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NgayKetThuc" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SanXuat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DaoDien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NamSX" Type="Int32" Nullable="false" />
+          <Property Name="ApPhich" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="DinhDangPhims" Relationship="Self.FK__DinhDangP__idPhi__31EC6D26" FromRole="Phim" ToRole="DinhDangPhim" />
+          <NavigationProperty Name="TheLoais" Relationship="Self.PhanLoaiPhim" FromRole="Phim" ToRole="TheLoai" />
+        </EntityType>
+        <EntityType Name="PhongChieu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenPhong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="idManHinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SoChoNgoi" Type="Int32" Nullable="false" />
+          <Property Name="TinhTrang" Type="Int32" Nullable="false" />
+          <Property Name="SoHangGhe" Type="Int32" Nullable="false" />
+          <Property Name="SoGheMotHang" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LichChieux" Relationship="Self.FK__LichChieu__idPho__3C69FB99" FromRole="PhongChieu" ToRole="LichChieu" />
+          <NavigationProperty Name="LoaiManHinh" Relationship="Self.FK__PhongChie__idMan__2D27B809" FromRole="PhongChieu" ToRole="LoaiManHinh" />
+        </EntityType>
+        <EntityType Name="TheLoai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenTheLoai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Phims" Relationship="Self.PhanLoaiPhim" FromRole="TheLoai" ToRole="Phim" />
+        </EntityType>
+        <EntityType Name="Ve">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoaiVe" Type="Int32" />
+          <Property Name="idLichChieu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaGheNgoi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idKhachHang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TrangThai" Type="Int32" Nullable="false" />
+          <Property Name="TienBanVe" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK__Ve__idKhachHang__46E78A0C" FromRole="Ve" ToRole="KhachHang" />
+          <NavigationProperty Name="LichChieu" Relationship="Self.FK__Ve__TienBanVe__45F365D3" FromRole="Ve" ToRole="LichChieu" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Pass" />
+            <PropertyRef Name="LoaiTK" />
+            <PropertyRef Name="idNV" />
+          </Key>
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LoaiTK" Type="Int32" Nullable="false" />
+          <Property Name="idNV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK__TaiKhoan__idNV__276EDEB3" FromRole="TaiKhoan" ToRole="NhanVien" />
+        </EntityType>
+        <Association Name="FK__DinhDangP__idLoa__32E0915F">
+          <End Role="LoaiManHinh" Type="Self.LoaiManHinh" Multiplicity="1" />
+          <End Role="DinhDangPhim" Type="Self.DinhDangPhim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiManHinh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DinhDangPhim">
+              <PropertyRef Name="idLoaiManHinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DinhDangP__idPhi__31EC6D26">
+          <End Role="Phim" Type="Self.Phim" Multiplicity="1" />
+          <End Role="DinhDangPhim" Type="Self.DinhDangPhim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phim">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DinhDangPhim">
+              <PropertyRef Name="idPhim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LichChieu__idDin__3D5E1FD2">
+          <End Role="DinhDangPhim" Type="Self.DinhDangPhim" Multiplicity="1" />
+          <End Role="LichChieu" Type="Self.LichChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DinhDangPhim">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LichChieu">
+              <PropertyRef Name="idDinhDang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ve__idKhachHang__46E78A0C">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+          <End Role="Ve" Type="Self.Ve" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ve">
+              <PropertyRef Name="idKhachHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LichChieu__idPho__3C69FB99">
+          <End Role="PhongChieu" Type="Self.PhongChieu" Multiplicity="1" />
+          <End Role="LichChieu" Type="Self.LichChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhongChieu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LichChieu">
+              <PropertyRef Name="idPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ve__TienBanVe__45F365D3">
+          <End Role="LichChieu" Type="Self.LichChieu" Multiplicity="0..1" />
+          <End Role="Ve" Type="Self.Ve" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LichChieu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ve">
+              <PropertyRef Name="idLichChieu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhongChie__idMan__2D27B809">
+          <End Role="LoaiManHinh" Type="Self.LoaiManHinh" Multiplicity="0..1" />
+          <End Role="PhongChieu" Type="Self.PhongChieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiManHinh">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhongChieu">
+              <PropertyRef Name="idManHinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaiKhoan__idNV__276EDEB3">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="idNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PhanLoaiPhim">
+          <End Role="Phim" Type="Self.Phim" Multiplicity="*" />
+          <End Role="TheLoai" Type="Self.TheLoai" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="QLRPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DinhDangPhims" EntityType="Self.DinhDangPhim" />
+          <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+          <EntitySet Name="LichChieux" EntityType="Self.LichChieu" />
+          <EntitySet Name="LoaiManHinhs" EntityType="Self.LoaiManHinh" />
+          <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+          <EntitySet Name="Phims" EntityType="Self.Phim" />
+          <EntitySet Name="PhongChieux" EntityType="Self.PhongChieu" />
+          <EntitySet Name="TheLoais" EntityType="Self.TheLoai" />
+          <EntitySet Name="Ves" EntityType="Self.Ve" />
+          <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
+          <AssociationSet Name="FK__DinhDangP__idLoa__32E0915F" Association="Self.FK__DinhDangP__idLoa__32E0915F">
+            <End Role="LoaiManHinh" EntitySet="LoaiManHinhs" />
+            <End Role="DinhDangPhim" EntitySet="DinhDangPhims" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DinhDangP__idPhi__31EC6D26" Association="Self.FK__DinhDangP__idPhi__31EC6D26">
+            <End Role="Phim" EntitySet="Phims" />
+            <End Role="DinhDangPhim" EntitySet="DinhDangPhims" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LichChieu__idDin__3D5E1FD2" Association="Self.FK__LichChieu__idDin__3D5E1FD2">
+            <End Role="DinhDangPhim" EntitySet="DinhDangPhims" />
+            <End Role="LichChieu" EntitySet="LichChieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ve__idKhachHang__46E78A0C" Association="Self.FK__Ve__idKhachHang__46E78A0C">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="Ve" EntitySet="Ves" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LichChieu__idPho__3C69FB99" Association="Self.FK__LichChieu__idPho__3C69FB99">
+            <End Role="PhongChieu" EntitySet="PhongChieux" />
+            <End Role="LichChieu" EntitySet="LichChieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ve__TienBanVe__45F365D3" Association="Self.FK__Ve__TienBanVe__45F365D3">
+            <End Role="LichChieu" EntitySet="LichChieux" />
+            <End Role="Ve" EntitySet="Ves" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhongChie__idMan__2D27B809" Association="Self.FK__PhongChie__idMan__2D27B809">
+            <End Role="LoaiManHinh" EntitySet="LoaiManHinhs" />
+            <End Role="PhongChieu" EntitySet="PhongChieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaiKhoan__idNV__276EDEB3" Association="Self.FK__TaiKhoan__idNV__276EDEB3">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+          </AssociationSet>
+          <AssociationSet Name="PhanLoaiPhim" Association="Self.PhanLoaiPhim">
+            <End Role="Phim" EntitySet="Phims" />
+            <End Role="TheLoai" EntitySet="TheLoais" />
+          </AssociationSet>
+          <FunctionImport Name="USP_DeleteTicketsByShowTimes">
+            <Parameter Name="idlichChieu" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_GetAccountList" ReturnType="Collection(QLRPModel.USP_GetAccountList_Result)" />
+          <FunctionImport Name="USP_GetAllListShowTimes" ReturnType="Collection(QLRPModel.USP_GetAllListShowTimes_Result)" />
+          <FunctionImport Name="USP_GetCinema" ReturnType="Collection(QLRPModel.USP_GetCinema_Result)" />
+          <FunctionImport Name="USP_GetCustomer" ReturnType="Collection(QLRPModel.USP_GetCustomer_Result)" />
+          <FunctionImport Name="USP_GetListFormatMovie" ReturnType="Collection(QLRPModel.USP_GetListFormatMovie_Result)" />
+          <FunctionImport Name="USP_GetListGenreByMovie" ReturnType="Collection(QLRPModel.USP_GetListGenreByMovie_Result)">
+            <Parameter Name="idPhim" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_GetListShowTimesByFormatMovie" ReturnType="Collection(QLRPModel.USP_GetListShowTimesByFormatMovie_Result)">
+            <Parameter Name="ID" Mode="In" Type="String" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="USP_GetListShowTimesNotCreateTickets" ReturnType="Collection(QLRPModel.USP_GetListShowTimesNotCreateTickets_Result)" />
+          <FunctionImport Name="USP_GetMovie" ReturnType="Collection(QLRPModel.USP_GetMovie_Result)" />
+          <FunctionImport Name="USP_GetReportRevenueByMovieAndDate" ReturnType="Collection(QLRPModel.USP_GetReportRevenueByMovieAndDate_Result)">
+            <Parameter Name="idMovie" Mode="In" Type="String" />
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="USP_GetRevenueByMovieAndDate" ReturnType="Collection(QLRPModel.USP_GetRevenueByMovieAndDate_Result)">
+            <Parameter Name="idMovie" Mode="In" Type="String" />
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="USP_GetShowtime" ReturnType="Collection(QLRPModel.USP_GetShowtime_Result)" />
+          <FunctionImport Name="USP_GetStaff" ReturnType="Collection(QLRPModel.USP_GetStaff_Result)" />
+          <FunctionImport Name="USP_InsertAccount">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="loaiTK" Mode="In" Type="Int32" />
+            <Parameter Name="idnv" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_InsertCinema">
+            <Parameter Name="idCinema" Mode="In" Type="String" />
+            <Parameter Name="tenPhong" Mode="In" Type="String" />
+            <Parameter Name="idMH" Mode="In" Type="String" />
+            <Parameter Name="soChoNgoi" Mode="In" Type="Int32" />
+            <Parameter Name="tinhTrang" Mode="In" Type="Int32" />
+            <Parameter Name="soHangGhe" Mode="In" Type="Int32" />
+            <Parameter Name="soGheMotHang" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_InsertCustomer">
+            <Parameter Name="idCus" Mode="In" Type="String" />
+            <Parameter Name="hoTen" Mode="In" Type="String" />
+            <Parameter Name="ngaySinh" Mode="In" Type="DateTime" />
+            <Parameter Name="diaChi" Mode="In" Type="String" />
+            <Parameter Name="sdt" Mode="In" Type="String" />
+            <Parameter Name="cmnd" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_InsertFormatMovie">
+            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="idPhim" Mode="In" Type="String" />
+            <Parameter Name="idLoaiManHinh" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_InsertGenre">
+            <Parameter Name="idGenre" Mode="In" Type="String" />
+            <Parameter Name="ten" Mode="In" Type="String" />
+            <Parameter Name="moTa" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_InsertMovie">
+            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="tenPhim" Mode="In" Type="String" />
+            <Parameter Name="moTa" Mode="In" Type="String" />
+            <Parameter Name="thoiLuong" Mode="In" Type="Double" />
+            <Parameter Name="ngayKhoiChieu" Mode="In" Type="DateTime" />
+            <Parameter Name="ngayKetThuc" Mode="In" Type="DateTime" />
+            <Parameter Name="sanXuat" Mode="In" Type="String" />
+            <Parameter Name="daoDien" Mode="In" Type="String" />
+            <Parameter Name="namSX" Mode="In" Type="Int32" />
+            <Parameter Name="apPhich" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="USP_InsertScreenType">
+            <Parameter Name="idScreenType" Mode="In" Type="String" />
+            <Parameter Name="ten" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_InsertShowtime">
+            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="idPhong" Mode="In" Type="String" />
+            <Parameter Name="idDinhDang" Mode="In" Type="String" />
+            <Parameter Name="thoiGianChieu" Mode="In" Type="DateTime" />
+            <Parameter Name="giaVe" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="USP_InsertStaff">
+            <Parameter Name="idStaff" Mode="In" Type="String" />
+            <Parameter Name="hoTen" Mode="In" Type="String" />
+            <Parameter Name="ngaySinh" Mode="In" Type="DateTime" />
+            <Parameter Name="diaChi" Mode="In" Type="String" />
+            <Parameter Name="sdt" Mode="In" Type="String" />
+            <Parameter Name="cmnd" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_InsertTicketByShowTimes">
+            <Parameter Name="idlichChieu" Mode="In" Type="String" />
+            <Parameter Name="maGheNgoi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_Login" ReturnType="Collection(QLRPModel.USP_Login_Result)">
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_ResetPasswordtAccount">
+            <Parameter Name="username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_SearchAccount" ReturnType="Collection(QLRPModel.USP_SearchAccount_Result)">
+            <Parameter Name="hoTen" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_SearchCustomer" ReturnType="Collection(QLRPModel.USP_SearchCustomer_Result)">
+            <Parameter Name="hoTen" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_SearchShowtimeByMovieName" ReturnType="Collection(QLRPModel.USP_SearchShowtimeByMovieName_Result)">
+            <Parameter Name="tenPhim" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_SearchStaff" ReturnType="Collection(QLRPModel.USP_SearchStaff_Result)">
+            <Parameter Name="hoTen" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_UpdateAccount">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="loaiTK" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_UpdateMovie">
+            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="tenPhim" Mode="In" Type="String" />
+            <Parameter Name="moTa" Mode="In" Type="String" />
+            <Parameter Name="thoiLuong" Mode="In" Type="Double" />
+            <Parameter Name="ngayKhoiChieu" Mode="In" Type="DateTime" />
+            <Parameter Name="ngayKetThuc" Mode="In" Type="DateTime" />
+            <Parameter Name="sanXuat" Mode="In" Type="String" />
+            <Parameter Name="daoDien" Mode="In" Type="String" />
+            <Parameter Name="namSX" Mode="In" Type="Int32" />
+            <Parameter Name="apPhich" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="USP_UpdatePasswordForAccount">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="newPass" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="USP_UpdateShowtime">
+            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="idPhong" Mode="In" Type="String" />
+            <Parameter Name="idDinhDang" Mode="In" Type="String" />
+            <Parameter Name="thoiGianChieu" Mode="In" Type="DateTime" />
+            <Parameter Name="giaVe" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="USP_UpdateStatusShowTimes">
+            <Parameter Name="idLichChieu" Mode="In" Type="String" />
+            <Parameter Name="status" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="USP_GetAccountList_Result">
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="Loại_tài_khoản" Nullable="false" />
+          <Property Type="String" Name="Mã_nhân_viên" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tên_nhân_viên" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="USP_GetAllListShowTimes_Result">
+          <Property Type="String" Name="id" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TenPhong" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="TenPhim" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="ThoiGianChieu" Nullable="false" Precision="23" />
+          <Property Type="String" Name="idDinhDang" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="GiaVe" Nullable="false" Precision="19" />
+          <Property Type="Int32" Name="TrangThai" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="USP_GetCinema_Result">
+          <Property Type="String" Name="Mã_phòng" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tên_phòng" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Tên_màn_hình" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Số_chỗ_ngồi" Nullable="false" />
+          <Property Type="Int32" Name="Tình_trạng" Nullable="false" />
+          <Property Type="Int32" Name="Số_hàng_ghế" Nullable="false" />
+          <Property Type="Int32" Name="Ghế_mỗi_hàng" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="USP_GetCustomer_Result">
+          <Property Type="String" Name="Mã_khách_hàng" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Họ_tên" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="Ngày_sinh" Nullable="false" />
+          <Property Type="String" Name="Địa_chỉ" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SĐT" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="CMND" Nullable="false" />
+          <Property Type="Int32" Name="Điểm_tích_lũy" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_GetListFormatMovie_Result">
+          <Property Type="String" Name="Mã_định_dạng" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Mã_phim" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tên_phim" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Mã_MH" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tên_MH" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="USP_GetListGenreByMovie_Result">
+          <Property Type="String" Name="id" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TenTheLoai" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MoTa" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="USP_GetListShowTimesByFormatMovie_Result">
+          <Property Type="String" Name="id" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TenPhong" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="TenPhim" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="ThoiGianChieu" Nullable="false" Precision="23" />
+          <Property Type="String" Name="idDinhDang" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="GiaVe" Nullable="false" Precision="19" />
+          <Property Type="Int32" Name="TrangThai" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="USP_GetListShowTimesNotCreateTickets_Result">
+          <Property Type="String" Name="id" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TenPhong" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="TenPhim" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="ThoiGianChieu" Nullable="false" Precision="23" />
+          <Property Type="String" Name="idDinhDang" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="GiaVe" Nullable="false" Precision="19" />
+          <Property Type="Int32" Name="TrangThai" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="USP_GetMovie_Result">
+          <Property Type="String" Name="Mã_phim" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tên_phim" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Mô_tả" Nullable="true" MaxLength="1000" />
+          <Property Type="Double" Name="Thời_lượng" Nullable="false" />
+          <Property Type="DateTime" Name="Ngày_khởi_chiếu" Nullable="false" />
+          <Property Type="DateTime" Name="Ngày_kết_thúc" Nullable="false" />
+          <Property Type="String" Name="Sản_xuất" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Đạo_diễn" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Năm_SX" Nullable="false" />
+          <Property Type="Binary" Name="Áp_Phích" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="USP_GetReportRevenueByMovieAndDate_Result">
+          <Property Type="String" Name="TenPhim" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="NgayChieu" Nullable="true" />
+          <Property Type="Time" Name="GioChieu" Nullable="true" />
+          <Property Type="Int32" Name="SoVeDaBan" Nullable="true" />
+          <Property Type="Decimal" Name="TienBanVe" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="USP_GetRevenueByMovieAndDate_Result">
+          <Property Type="String" Name="Tên_phim" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="Ngày_chiếu" Nullable="true" />
+          <Property Type="Time" Name="Giờ_chiếu" Nullable="true" />
+          <Property Type="Int32" Name="Số_vé_đã_bán" Nullable="true" />
+          <Property Type="Decimal" Name="Tiền_vé" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="USP_GetShowtime_Result">
+          <Property Type="String" Name="Mã_lịch_chiếu" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Mã_phòng" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tên_phim" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Màn_hình" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Thời_gian_chiếu" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="Giá_vé" Nullable="false" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="USP_GetStaff_Result">
+          <Property Type="String" Name="Mã_nhân_viên" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Họ_tên" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="Ngày_sinh" Nullable="false" />
+          <Property Type="String" Name="Địa_chỉ" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SĐT" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="CMND" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="USP_Login_Result">
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Pass" Nullable="false" MaxLength="1000" />
+          <Property Type="Int32" Name="LoaiTK" Nullable="false" />
+          <Property Type="String" Name="idNV" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="USP_SearchAccount_Result">
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="Loại_tài_khoản" Nullable="false" />
+          <Property Type="String" Name="Mã_nhân_viên" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tên_nhân_viên" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="USP_SearchCustomer_Result">
+          <Property Type="String" Name="Mã_khách_hàng" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Họ_tên" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="Ngày_sinh" Nullable="false" />
+          <Property Type="String" Name="Địa_chỉ" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SĐT" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="CMND" Nullable="false" />
+          <Property Type="Int32" Name="Điểm_tích_lũy" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_SearchShowtimeByMovieName_Result">
+          <Property Type="String" Name="Mã_lịch_chiếu" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Mã_phòng" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tên_phim" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Màn_hình" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Thời_gian_chiếu" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="Giá_vé" Nullable="false" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="USP_SearchStaff_Result">
+          <Property Type="String" Name="Mã_nhân_viên" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Họ_tên" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="Ngày_sinh" Nullable="false" />
+          <Property Type="String" Name="Địa_chỉ" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SĐT" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="CMND" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLRPModelStoreContainer" CdmEntityContainer="QLRPEntities">
+          <EntitySetMapping Name="DinhDangPhims">
+            <EntityTypeMapping TypeName="QLRPModel.DinhDangPhim">
+              <MappingFragment StoreEntitySet="DinhDangPhim">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idPhim" ColumnName="idPhim" />
+                <ScalarProperty Name="idLoaiManHinh" ColumnName="idLoaiManHinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KhachHangs">
+            <EntityTypeMapping TypeName="QLRPModel.KhachHang">
+              <MappingFragment StoreEntitySet="KhachHang">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="DiemTichLuy" ColumnName="DiemTichLuy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LichChieux">
+            <EntityTypeMapping TypeName="QLRPModel.LichChieu">
+              <MappingFragment StoreEntitySet="LichChieu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ThoiGianChieu" ColumnName="ThoiGianChieu" />
+                <ScalarProperty Name="idPhong" ColumnName="idPhong" />
+                <ScalarProperty Name="idDinhDang" ColumnName="idDinhDang" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiManHinhs">
+            <EntityTypeMapping TypeName="QLRPModel.LoaiManHinh">
+              <MappingFragment StoreEntitySet="LoaiManHinh">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenMH" ColumnName="TenMH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhanViens">
+            <EntityTypeMapping TypeName="QLRPModel.NhanVien">
+              <MappingFragment StoreEntitySet="NhanVien">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phims">
+            <EntityTypeMapping TypeName="QLRPModel.Phim">
+              <MappingFragment StoreEntitySet="Phim">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="ThoiLuong" ColumnName="ThoiLuong" />
+                <ScalarProperty Name="NgayKhoiChieu" ColumnName="NgayKhoiChieu" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="SanXuat" ColumnName="SanXuat" />
+                <ScalarProperty Name="DaoDien" ColumnName="DaoDien" />
+                <ScalarProperty Name="NamSX" ColumnName="NamSX" />
+                <ScalarProperty Name="ApPhich" ColumnName="ApPhich" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhongChieux">
+            <EntityTypeMapping TypeName="QLRPModel.PhongChieu">
+              <MappingFragment StoreEntitySet="PhongChieu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+                <ScalarProperty Name="idManHinh" ColumnName="idManHinh" />
+                <ScalarProperty Name="SoChoNgoi" ColumnName="SoChoNgoi" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="SoHangGhe" ColumnName="SoHangGhe" />
+                <ScalarProperty Name="SoGheMotHang" ColumnName="SoGheMotHang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TheLoais">
+            <EntityTypeMapping TypeName="QLRPModel.TheLoai">
+              <MappingFragment StoreEntitySet="TheLoai">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenTheLoai" ColumnName="TenTheLoai" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ves">
+            <EntityTypeMapping TypeName="QLRPModel.Ve">
+              <MappingFragment StoreEntitySet="Ve">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="LoaiVe" ColumnName="LoaiVe" />
+                <ScalarProperty Name="idLichChieu" ColumnName="idLichChieu" />
+                <ScalarProperty Name="MaGheNgoi" ColumnName="MaGheNgoi" />
+                <ScalarProperty Name="idKhachHang" ColumnName="idKhachHang" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="TienBanVe" ColumnName="TienBanVe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="QLRPModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="LoaiTK" ColumnName="LoaiTK" />
+                <ScalarProperty Name="idNV" ColumnName="idNV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PhanLoaiPhim" TypeName="QLRPModel.PhanLoaiPhim" StoreEntitySet="PhanLoaiPhim">
+            <EndProperty Name="Phim">
+              <ScalarProperty Name="id" ColumnName="idPhim" />
+            </EndProperty>
+            <EndProperty Name="TheLoai">
+              <ScalarProperty Name="id" ColumnName="idTheLoai" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="USP_DeleteTicketsByShowTimes" FunctionName="QLRPModel.Store.USP_DeleteTicketsByShowTimes" />
+          <FunctionImportMapping FunctionImportName="USP_GetAccountList" FunctionName="QLRPModel.Store.USP_GetAccountList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetAccountList_Result">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Loại_tài_khoản" ColumnName="Loại tài khoản" />
+                <ScalarProperty Name="Mã_nhân_viên" ColumnName="Mã nhân viên" />
+                <ScalarProperty Name="Tên_nhân_viên" ColumnName="Tên nhân viên" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetAllListShowTimes" FunctionName="QLRPModel.Store.USP_GetAllListShowTimes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetAllListShowTimes_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+                <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
+                <ScalarProperty Name="ThoiGianChieu" ColumnName="ThoiGianChieu" />
+                <ScalarProperty Name="idDinhDang" ColumnName="idDinhDang" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetCinema" FunctionName="QLRPModel.Store.USP_GetCinema">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetCinema_Result">
+                <ScalarProperty Name="Mã_phòng" ColumnName="Mã phòng" />
+                <ScalarProperty Name="Tên_phòng" ColumnName="Tên phòng" />
+                <ScalarProperty Name="Tên_màn_hình" ColumnName="Tên màn hình" />
+                <ScalarProperty Name="Số_chỗ_ngồi" ColumnName="Số chỗ ngồi" />
+                <ScalarProperty Name="Tình_trạng" ColumnName="Tình trạng" />
+                <ScalarProperty Name="Số_hàng_ghế" ColumnName="Số hàng ghế" />
+                <ScalarProperty Name="Ghế_mỗi_hàng" ColumnName="Ghế mỗi hàng" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetCustomer" FunctionName="QLRPModel.Store.USP_GetCustomer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetCustomer_Result">
+                <ScalarProperty Name="Mã_khách_hàng" ColumnName="Mã khách hàng" />
+                <ScalarProperty Name="Họ_tên" ColumnName="Họ tên" />
+                <ScalarProperty Name="Ngày_sinh" ColumnName="Ngày sinh" />
+                <ScalarProperty Name="Địa_chỉ" ColumnName="Địa chỉ" />
+                <ScalarProperty Name="SĐT" ColumnName="SĐT" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="Điểm_tích_lũy" ColumnName="Điểm tích lũy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetListFormatMovie" FunctionName="QLRPModel.Store.USP_GetListFormatMovie">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetListFormatMovie_Result">
+                <ScalarProperty Name="Mã_định_dạng" ColumnName="Mã định dạng" />
+                <ScalarProperty Name="Mã_phim" ColumnName="Mã phim" />
+                <ScalarProperty Name="Tên_phim" ColumnName="Tên phim" />
+                <ScalarProperty Name="Mã_MH" ColumnName="Mã MH" />
+                <ScalarProperty Name="Tên_MH" ColumnName="Tên MH" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetListGenreByMovie" FunctionName="QLRPModel.Store.USP_GetListGenreByMovie">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetListGenreByMovie_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenTheLoai" ColumnName="TenTheLoai" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetListShowTimesByFormatMovie" FunctionName="QLRPModel.Store.USP_GetListShowTimesByFormatMovie">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetListShowTimesByFormatMovie_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+                <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
+                <ScalarProperty Name="ThoiGianChieu" ColumnName="ThoiGianChieu" />
+                <ScalarProperty Name="idDinhDang" ColumnName="idDinhDang" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetListShowTimesNotCreateTickets" FunctionName="QLRPModel.Store.USP_GetListShowTimesNotCreateTickets">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetListShowTimesNotCreateTickets_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+                <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
+                <ScalarProperty Name="ThoiGianChieu" ColumnName="ThoiGianChieu" />
+                <ScalarProperty Name="idDinhDang" ColumnName="idDinhDang" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetMovie" FunctionName="QLRPModel.Store.USP_GetMovie">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetMovie_Result">
+                <ScalarProperty Name="Mã_phim" ColumnName="Mã phim" />
+                <ScalarProperty Name="Tên_phim" ColumnName="Tên phim" />
+                <ScalarProperty Name="Mô_tả" ColumnName="Mô tả" />
+                <ScalarProperty Name="Thời_lượng" ColumnName="Thời lượng" />
+                <ScalarProperty Name="Ngày_khởi_chiếu" ColumnName="Ngày khởi chiếu" />
+                <ScalarProperty Name="Ngày_kết_thúc" ColumnName="Ngày kết thúc" />
+                <ScalarProperty Name="Sản_xuất" ColumnName="Sản xuất" />
+                <ScalarProperty Name="Đạo_diễn" ColumnName="Đạo diễn" />
+                <ScalarProperty Name="Năm_SX" ColumnName="Năm SX" />
+                <ScalarProperty Name="Áp_Phích" ColumnName="Áp Phích" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetReportRevenueByMovieAndDate" FunctionName="QLRPModel.Store.USP_GetReportRevenueByMovieAndDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetReportRevenueByMovieAndDate_Result">
+                <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
+                <ScalarProperty Name="NgayChieu" ColumnName="NgayChieu" />
+                <ScalarProperty Name="GioChieu" ColumnName="GioChieu" />
+                <ScalarProperty Name="SoVeDaBan" ColumnName="SoVeDaBan" />
+                <ScalarProperty Name="TienBanVe" ColumnName="TienBanVe" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetRevenueByMovieAndDate" FunctionName="QLRPModel.Store.USP_GetRevenueByMovieAndDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetRevenueByMovieAndDate_Result">
+                <ScalarProperty Name="Tên_phim" ColumnName="Tên phim" />
+                <ScalarProperty Name="Ngày_chiếu" ColumnName="Ngày chiếu" />
+                <ScalarProperty Name="Giờ_chiếu" ColumnName="Giờ chiếu" />
+                <ScalarProperty Name="Số_vé_đã_bán" ColumnName="Số vé đã bán" />
+                <ScalarProperty Name="Tiền_vé" ColumnName="Tiền vé" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetShowtime" FunctionName="QLRPModel.Store.USP_GetShowtime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetShowtime_Result">
+                <ScalarProperty Name="Mã_lịch_chiếu" ColumnName="Mã lịch chiếu" />
+                <ScalarProperty Name="Mã_phòng" ColumnName="Mã phòng" />
+                <ScalarProperty Name="Tên_phim" ColumnName="Tên phim" />
+                <ScalarProperty Name="Màn_hình" ColumnName="Màn hình" />
+                <ScalarProperty Name="Thời_gian_chiếu" ColumnName="Thời gian chiếu" />
+                <ScalarProperty Name="Giá_vé" ColumnName="Giá vé" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetStaff" FunctionName="QLRPModel.Store.USP_GetStaff">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_GetStaff_Result">
+                <ScalarProperty Name="Mã_nhân_viên" ColumnName="Mã nhân viên" />
+                <ScalarProperty Name="Họ_tên" ColumnName="Họ tên" />
+                <ScalarProperty Name="Ngày_sinh" ColumnName="Ngày sinh" />
+                <ScalarProperty Name="Địa_chỉ" ColumnName="Địa chỉ" />
+                <ScalarProperty Name="SĐT" ColumnName="SĐT" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_InsertAccount" FunctionName="QLRPModel.Store.USP_InsertAccount" />
+          <FunctionImportMapping FunctionImportName="USP_InsertCinema" FunctionName="QLRPModel.Store.USP_InsertCinema" />
+          <FunctionImportMapping FunctionImportName="USP_InsertCustomer" FunctionName="QLRPModel.Store.USP_InsertCustomer" />
+          <FunctionImportMapping FunctionImportName="USP_InsertFormatMovie" FunctionName="QLRPModel.Store.USP_InsertFormatMovie" />
+          <FunctionImportMapping FunctionImportName="USP_InsertGenre" FunctionName="QLRPModel.Store.USP_InsertGenre" />
+          <FunctionImportMapping FunctionImportName="USP_InsertMovie" FunctionName="QLRPModel.Store.USP_InsertMovie" />
+          <FunctionImportMapping FunctionImportName="USP_InsertScreenType" FunctionName="QLRPModel.Store.USP_InsertScreenType" />
+          <FunctionImportMapping FunctionImportName="USP_InsertShowtime" FunctionName="QLRPModel.Store.USP_InsertShowtime" />
+          <FunctionImportMapping FunctionImportName="USP_InsertStaff" FunctionName="QLRPModel.Store.USP_InsertStaff" />
+          <FunctionImportMapping FunctionImportName="USP_InsertTicketByShowTimes" FunctionName="QLRPModel.Store.USP_InsertTicketByShowTimes" />
+          <FunctionImportMapping FunctionImportName="USP_Login" FunctionName="QLRPModel.Store.USP_Login">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_Login_Result">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="LoaiTK" ColumnName="LoaiTK" />
+                <ScalarProperty Name="idNV" ColumnName="idNV" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_ResetPasswordtAccount" FunctionName="QLRPModel.Store.USP_ResetPasswordtAccount" />
+          <FunctionImportMapping FunctionImportName="USP_SearchAccount" FunctionName="QLRPModel.Store.USP_SearchAccount">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_SearchAccount_Result">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Loại_tài_khoản" ColumnName="Loại tài khoản" />
+                <ScalarProperty Name="Mã_nhân_viên" ColumnName="Mã nhân viên" />
+                <ScalarProperty Name="Tên_nhân_viên" ColumnName="Tên nhân viên" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_SearchCustomer" FunctionName="QLRPModel.Store.USP_SearchCustomer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_SearchCustomer_Result">
+                <ScalarProperty Name="Mã_khách_hàng" ColumnName="Mã khách hàng" />
+                <ScalarProperty Name="Họ_tên" ColumnName="Họ tên" />
+                <ScalarProperty Name="Ngày_sinh" ColumnName="Ngày sinh" />
+                <ScalarProperty Name="Địa_chỉ" ColumnName="Địa chỉ" />
+                <ScalarProperty Name="SĐT" ColumnName="SĐT" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="Điểm_tích_lũy" ColumnName="Điểm tích lũy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_SearchShowtimeByMovieName" FunctionName="QLRPModel.Store.USP_SearchShowtimeByMovieName">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_SearchShowtimeByMovieName_Result">
+                <ScalarProperty Name="Mã_lịch_chiếu" ColumnName="Mã lịch chiếu" />
+                <ScalarProperty Name="Mã_phòng" ColumnName="Mã phòng" />
+                <ScalarProperty Name="Tên_phim" ColumnName="Tên phim" />
+                <ScalarProperty Name="Màn_hình" ColumnName="Màn hình" />
+                <ScalarProperty Name="Thời_gian_chiếu" ColumnName="Thời gian chiếu" />
+                <ScalarProperty Name="Giá_vé" ColumnName="Giá vé" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_SearchStaff" FunctionName="QLRPModel.Store.USP_SearchStaff">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLRPModel.USP_SearchStaff_Result">
+                <ScalarProperty Name="Mã_nhân_viên" ColumnName="Mã nhân viên" />
+                <ScalarProperty Name="Họ_tên" ColumnName="Họ tên" />
+                <ScalarProperty Name="Ngày_sinh" ColumnName="Ngày sinh" />
+                <ScalarProperty Name="Địa_chỉ" ColumnName="Địa chỉ" />
+                <ScalarProperty Name="SĐT" ColumnName="SĐT" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_UpdateAccount" FunctionName="QLRPModel.Store.USP_UpdateAccount" />
+          <FunctionImportMapping FunctionImportName="USP_UpdateMovie" FunctionName="QLRPModel.Store.USP_UpdateMovie" />
+          <FunctionImportMapping FunctionImportName="USP_UpdatePasswordForAccount" FunctionName="QLRPModel.Store.USP_UpdatePasswordForAccount" />
+          <FunctionImportMapping FunctionImportName="USP_UpdateShowtime" FunctionName="QLRPModel.Store.USP_UpdateShowtime" />
+          <FunctionImportMapping FunctionImportName="USP_UpdateStatusShowTimes" FunctionName="QLRPModel.Store.USP_UpdateStatusShowTimes" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

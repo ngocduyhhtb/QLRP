@@ -46,7 +46,7 @@ namespace GUI.frmAdminUserControls
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
             string staffID = (string)dtgvAccount.SelectedCells[0].OwningRow.Cells["Mã nhân viên"].Value;
-            Staff staff = StaffDAO.GetStaffByID(staffID);//The staff that we're currently selecting
+            NhanVien staff = StaffDAO.GetStaffByID(staffID);//The staff that we're currently selecting
 
             if (staff == null)
                 //The case that nothing on dtgv - no result after searched
@@ -56,9 +56,9 @@ namespace GUI.frmAdminUserControls
 
             int index = -1;
             int i = 0;
-            foreach (Staff item in cboStaffID_Account.Items)
+            foreach (NhanVien item in cboStaffID_Account.Items)
             {
-                if (item.ID == staff.ID)
+                if (item.id == staff.id)
                 {
                     index = i;
                     break;
