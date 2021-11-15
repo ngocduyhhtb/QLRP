@@ -88,11 +88,12 @@ namespace GUI.frmAdminUserControls
         }
         private void btnInsertAccount_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text;
+            /*string username = txtUsername.Text;
             int accountType = (int)nudAccountType.Value;
             string staffID = cboStaffID_Account.SelectedValue.ToString();
             InsertAccount(username, accountType, staffID);
-            LoadAccountList();
+            LoadAccountList();*/
+            Console.WriteLine("cc");
         }
 
         void UpdateAccount(string username, int accountType)
@@ -128,10 +129,10 @@ namespace GUI.frmAdminUserControls
         private void btnDeleteAccount_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
+            Console.WriteLine(username);
             DeleteAccount(username);
             LoadAccountList();
         }
-
         void ResetPassword(string username)
         {
             if (AccountDAO.ResetPassword(username))

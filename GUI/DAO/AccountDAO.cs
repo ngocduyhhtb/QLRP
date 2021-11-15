@@ -141,6 +141,7 @@ namespace GUI.DAO
                     {
                         dbContext.TaiKhoans.Remove(taiKhoan);
                         dbContext.SaveChanges();
+                        Console.WriteLine("DONE BRO");
                     }
                     return taiKhoan != null;
                 }

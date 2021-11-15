@@ -96,7 +96,7 @@
             this.btnDeleteAccount.TabIndex = 15;
             this.btnDeleteAccount.Text = "Xoá";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
-            this.btnDeleteAccount.CausesValidationChanged += new System.EventHandler(this.btnDeleteAccount_Click);
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
             // 
             // btnUpdateAccount
             // 
